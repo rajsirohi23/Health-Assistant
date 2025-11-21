@@ -102,8 +102,8 @@ This project is licensed under the MIT License.
 🌐 GitHub: https://github.com/rajsirohi23
 📧 Email: rajsirohi2555@gmail.com
 
-⭐ If you like this project, please give it a star on GitHub! ⭐
 
+⭐ If you like this project, please give it a star on GitHub! ⭐
 ---
 
 If you want, I can also create:
