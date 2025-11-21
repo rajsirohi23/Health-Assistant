@@ -17,7 +17,7 @@ Deployment ready via Procfile (supports Heroku or similar platform).
 Easy installation via requirements.txt.
 
 
-#Tech Stack
+#Tech Stack🧑🏻‍💻
 Language: Python
 Framework: Flask
 Machine Learning: (specify library, e.g., scikit-learn, TensorFlow)
@@ -26,3 +26,15 @@ Deployment: Render
 
 
 #Architecture & File Structure
+
+Health-Assistant/
+│  
+├── app.py            # Main Flask app  
+├── config.py         # Configuration settings  
+├── model/            # Trained ML model files  
+├── data/             # Sample data or training csvs  
+├── templates/        # Flask HTML templates  
+├── static/           # CSS, JS, images  
+├── requirements.txt  # Python dependencies  
+├── Procfile          # Deployment configuration  
+└── README.md         # Project documentation  
