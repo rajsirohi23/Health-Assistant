@@ -1,0 +1,8 @@
+Flask==3.0.0
+gunicorn
+joblib
+pandas
+beautifulsoup4
+nltk
+scikit-learn==1.6.1
+plotly

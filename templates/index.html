@@ -1,0 +1,328 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <div class="row g-4">
+
+    <!-- LEFT SIDEBAR - Input Controls -->
+    <div class="col-lg-5">
+
+      <!-- Input Method Selector -->
+      <div class="card mb-4" style="animation-delay: 0.1s;">
+        <div class="card-body">
+          <h5>
+            <i class="fas fa-sliders-h me-2" style="color: #8b5cf6;"></i>
+            Select Input Method
+          </h5>
+
+          <form method="post" id="mainForm">
+
+            <!-- Radio Options -->
+            <div class="form-check"
+              onclick="document.getElementById('predefined').checked = true; toggleInputMethod();">
+              <input class="form-check-input" type="radio" name="input_method" id="predefined" value="predefined"
+                checked>
+              <label class="form-check-label" for="predefined">
+                <i class="fas fa-list-ul me-2"></i>
+                <strong>Choose from Symptom List</strong>
+                <div class="small text-secondary mt-1">Select predefined medical conditions</div>
+              </label>
+            </div>
+
+            <div class="form-check" onclick="document.getElementById('free').checked = true; toggleInputMethod();">
+              <input class="form-check-input" type="radio" name="input_method" id="free" value="free">
+              <label class="form-check-label" for="free">
+                <i class="fas fa-keyboard me-2"></i>
+                <strong>Describe Your Symptoms</strong>
+                <div class="small text-secondary mt-1">Use AI to analyze custom text</div>
+              </label>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- Input Section -->
+      <div class="card" style="animation-delay: 0.2s;">
+        <div class="card-body">
+          <h5>
+            <i class="fas fa-notes-medical me-2" style="color: #ec4899;"></i>
+            Enter Symptoms
+          </h5>
+
+          <!-- Predefined Symptoms Section -->
+          <div id="predefined_section">
+            <label class="form-label">
+              <i class="fas fa-check-square me-1"></i>
+              Select Multiple Symptoms
+            </label>
+            <select class="form-select" name="symptoms" form="mainForm" multiple size="10">
+              {% for s in symptoms %}
+              <option value="{{ s }}">{{ s }}</option>
+              {% endfor %}
+            </select>
+            <div class="small text-secondary mt-2">
+              <i class="fas fa-info-circle me-1"></i>
+              Hold <kbd>Ctrl</kbd> (Windows) or <kbd>Cmd</kbd> (Mac) to select multiple
+            </div>
+          </div>
+
+          <!-- Free Text Section -->
+          <div id="free_section" style="display:none;">
+            <label class="form-label">
+              <i class="fas fa-comment-medical me-1"></i>
+              Describe Your Symptoms in Detail
+            </label>
+            <textarea class="form-control" name="free_text" form="mainForm" rows="10"
+              placeholder="Example: I've been experiencing severe headaches for the past week, along with dizziness and sensitivity to light. The pain is usually on one side of my head and gets worse with physical activity..."></textarea>
+            <div class="small text-secondary mt-2">
+              <i class="fas fa-lightbulb me-1"></i>
+              Be as detailed as possible for better predictions
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" form="mainForm" class="btn btn-primary w-100 mt-4">
+            <i class="fas fa-brain me-2"></i>
+            Analyze with AI
+            <i class="fas fa-arrow-right ms-2"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Info Card -->
+      <div class="card mt-4"
+        style="animation-delay: 0.3s; background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(139, 92, 246, 0.1));">
+        <div class="card-body">
+          <h6 class="mb-3">
+            <i class="fas fa-shield-alt me-2" style="color: #06b6d4;"></i>
+            Privacy & Security
+          </h6>
+          <p class="small mb-2">
+            <i class="fas fa-lock me-2" style="color: #10b981;"></i>
+            Your data is processed securely
+          </p>
+          <p class="small mb-2">
+            <i class="fas fa-user-shield me-2" style="color: #10b981;"></i>
+            No personal information is stored
+          </p>
+          <p class="small mb-0">
+            <i class="fas fa-robot me-2" style="color: #10b981;"></i>
+            AI-powered local analysis
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SECTION - Information -->
+    <div class="col-lg-7">
+
+      <!-- Hero Info Card -->
+      <div class="card mb-4"
+        style="animation-delay: 0.2s; background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(236, 72, 153, 0.15)); border: 2px solid rgba(139, 92, 246, 0.3);">
+        <div class="card-body p-4">
+          <div class="text-center mb-4">
+            <div class="d-inline-block p-3 rounded-circle mb-3" style="background: rgba(139, 92, 246, 0.2);">
+              <i class="fas fa-stethoscope fa-3x" style="color: #8b5cf6;"></i>
+            </div>
+            <h3 class="mb-3">
+              Welcome to the Future of Medical AI
+            </h3>
+            <p class="lead" style="color: #d1d5db;">
+              Our advanced machine learning system analyzes your symptoms and provides intelligent drug recommendations
+              based on extensive medical data.
+            </p>
+          </div>
+
+          <div class="row g-3 mt-4">
+            <div class="col-md-6">
+              <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.05);">
+                <div class="d-flex align-items-center mb-2">
+                  <div class="me-3" style="font-size: 2rem; color: #8b5cf6;">
+                    <i class="fas fa-chart-line"></i>
+                  </div>
+                  <div>
+                    <div style="font-size: 1.5rem; font-weight: 700; color: #8b5cf6;">95%</div>
+                    <div class="small text-secondary">Prediction Accuracy</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.05);">
+                <div class="d-flex align-items-center mb-2">
+                  <div class="me-3" style="font-size: 2rem; color: #ec4899;">
+                    <i class="fas fa-database"></i>
+                  </div>
+                  <div>
+                    <div style="font-size: 1.5rem; font-weight: 700; color: #ec4899;">50K+</div>
+                    <div class="small text-secondary">Medical Records</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How It Works -->
+      <div class="card mb-4" style="animation-delay: 0.3s;">
+        <div class="card-body">
+          <h5 class="mb-4">
+            <i class="fas fa-cogs me-2" style="color: #06b6d4;"></i>
+            How It Works
+          </h5>
+
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="text-center p-3 h-100 rounded"
+                style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));">
+                <div class="mb-3" style="font-size: 2.5rem; color: #8b5cf6;">
+                  <i class="fas fa-edit"></i>
+                </div>
+                <h6 style="color: #8b5cf6;">1. Input</h6>
+                <p class="small text-secondary mb-0">
+                  Describe your symptoms or select from our comprehensive list
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="text-center p-3 h-100 rounded"
+                style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(236, 72, 153, 0.05));">
+                <div class="mb-3" style="font-size: 2.5rem; color: #ec4899;">
+                  <i class="fas fa-microchip"></i>
+                </div>
+                <h6 style="color: #ec4899;">2. AI Analysis</h6>
+                <p class="small text-secondary mb-0">
+                  Our ML model processes your input using NLP algorithms
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="text-center p-3 h-100 rounded"
+                style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(6, 182, 212, 0.05));">
+                <div class="mb-3" style="font-size: 2.5rem; color: #06b6d4;">
+                  <i class="fas fa-pills"></i>
+                </div>
+                <h6 style="color: #06b6d4;">3. Results</h6>
+                <p class="small text-secondary mb-0">
+                  Get condition prediction and top-rated drug recommendations
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="card" style="animation-delay: 0.4s;">
+        <div class="card-body">
+          <h5 class="mb-4">
+            <i class="fas fa-star me-2" style="color: #fbbf24;"></i>
+            Key Features
+          </h5>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="d-flex align-items-start p-2">
+                <div class="me-3" style="color: #10b981; font-size: 1.5rem;">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div>
+                  <h6 class="mb-1">Natural Language Processing</h6>
+                  <p class="small text-secondary mb-0">
+                    Advanced NLP understands symptom descriptions
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="d-flex align-items-start p-2">
+                <div class="me-3" style="color: #10b981; font-size: 1.5rem;">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div>
+                  <h6 class="mb-1">Evidence-Based Results</h6>
+                  <p class="small text-secondary mb-0">
+                    Recommendations based on real patient data
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="d-flex align-items-start p-2">
+                <div class="me-3" style="color: #10b981; font-size: 1.5rem;">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div>
+                  <h6 class="mb-1">Instant Predictions</h6>
+                  <p class="small text-secondary mb-0">
+                    Get results in seconds with high accuracy
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="d-flex align-items-start p-2">
+                <div class="me-3" style="color: #10b981; font-size: 1.5rem;">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div>
+                  <h6 class="mb-1">Visual Analytics</h6>
+                  <p class="small text-secondary mb-0">
+                    Interactive charts for better understanding
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <label>Mode</label>
+      <select name="mode">
+        <option value="A">A — Intelligent (recommended)</option>
+        <option value="B">B — Minimal</option>
+        <option value="C">C — Full debug</option>
+      </select>
+
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Toggle between input methods
+  function toggleInputMethod() {
+    const predefinedRadio = document.getElementById('predefined');
+    const predefinedSection = document.getElementById('predefined_section');
+    const freeSection = document.getElementById('free_section');
+
+    if (predefinedRadio.checked) {
+      predefinedSection.style.display = 'block';
+      freeSection.style.display = 'none';
+    } else {
+      predefinedSection.style.display = 'none';
+      freeSection.style.display = 'block';
+    }
+  }
+
+  // Add event listeners
+  document.querySelectorAll('input[name="input_method"]').forEach(radio => {
+    radio.addEventListener('change', toggleInputMethod);
+  });
+
+  // Form submission animation
+  document.getElementById('mainForm').addEventListener('submit', function (e) {
+    const btn = this.querySelector('button[type="submit"]');
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Analyzing...';
+    btn.disabled = true;
+  });
+</script>
+{% endblock %}

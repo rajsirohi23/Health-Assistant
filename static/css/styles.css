@@ -1,0 +1,730 @@
+/* body { background: #0f1720; color: #f5f5f5; }
+.card { background: rgba(20, 23, 26, 0.95); border: none; }
+
+
+
+ */
+
+
+
+
+
+ /* ==============================================
+   WORLD-CLASS DRUG RECOMMENDATION SYSTEM
+   Premium Design with Advanced Animations
+   ============================================== */
+
+/* ============= ROOT VARIABLES ============= */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --dark-bg: #0f0f23;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --text-primary: #ffffff;
+  --text-secondary: #b4b4c8;
+  --accent-purple: #8b5cf6;
+  --accent-pink: #ec4899;
+  --accent-cyan: #06b6d4;
+  --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.3);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ============= GLOBAL RESET ============= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: var(--dark-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ============= ANIMATED BACKGROUND ============= */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 90%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+  animation: backgroundPulse 15s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* ============= FLOATING PARTICLES ============= */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(139, 92, 246, 0.6);
+  border-radius: 50%;
+  animation: float 20s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% {
+    transform: translateY(-100vh) translateX(100px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* ============= CONTAINER ============= */
+.container-fluid {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ============= HEADER ============= */
+header {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 3rem 2rem !important;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+  animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+header h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  letter-spacing: -0.5px;
+  animation: gradientShift 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ============= CARDS ============= */
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out backwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(139, 92, 246, 0.4);
+  border-color: rgba(139, 92, 246, 0.5);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ============= FORM ELEMENTS ============= */
+.form-control,
+.form-select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: var(--text-primary);
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
+  color: var(--text-primary);
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: var(--text-secondary);
+}
+
+.form-select option {
+  background: #1a1a2e;
+  color: var(--text-primary);
+  padding: 0.5rem;
+}
+
+/* ============= RADIO BUTTONS ============= */
+.form-check {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.form-check:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.form-check-input {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.1rem;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+}
+
+.form-check-input:checked {
+  background-color: var(--accent-purple);
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
+}
+
+.form-check-label {
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+
+/* ============= BUTTONS ============= */
+.btn {
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  color: white;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+  position: relative;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.6);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ============= DRUG CARDS ============= */
+.drug-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: slideInLeft 0.6s ease-out backwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.drug-card:nth-child(1) { animation-delay: 0.1s; }
+.drug-card:nth-child(2) { animation-delay: 0.2s; }
+.drug-card:nth-child(3) { animation-delay: 0.3s; }
+
+.drug-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s;
+}
+
+.drug-card:hover::before {
+  left: 100%;
+}
+
+.drug-card:hover {
+  transform: translateX(10px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  border-color: rgba(139, 92, 246, 0.5);
+}
+
+.drug-rank {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 40px;
+  text-align: center;
+  margin-right: 1rem;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+  }
+}
+
+/* ============= PREDICTION CARD ============= */
+.prediction-card {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(139, 92, 246, 0.4);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 12px 48px rgba(139, 92, 246, 0.3);
+  animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.prediction-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.prediction-card h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+  position: relative;
+  z-index: 1;
+}
+
+/* ============= PLOTLY CHART ============= */
+#plotly-div {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-card);
+  animation: fadeIn 1s ease-out 0.5s backwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ============= ALERTS ============= */
+.alert {
+  border-radius: 16px;
+  border: none;
+  padding: 1.25rem 1.5rem;
+  backdrop-filter: blur(20px);
+  animation: slideInDown 0.6s ease-out;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert-warning {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.2));
+  border-left: 4px solid #fbbf24;
+  color: #fef3c7;
+}
+
+.alert-info {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(14, 165, 233, 0.2));
+  border-left: 4px solid #06b6d4;
+  color: #cffafe;
+}
+
+/* ============= FOOTER ============= */
+footer {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 4rem;
+  padding: 2rem !important;
+  text-align: center;
+  color: var(--text-secondary);
+  animation: fadeInUp 0.8s ease-out 0.6s backwards;
+}
+
+/* ============= SECTION TITLES ============= */
+h3, h5 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  position: relative;
+  display: inline-block;
+}
+
+h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60%;
+  height: 3px;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+}
+
+/* ============= LOADING ANIMATION ============= */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--accent-purple);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============= RESPONSIVE ============= */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .container-fluid {
+    padding: 1rem;
+  }
+  
+  .card {
+    padding: 1.5rem;
+  }
+  
+  .btn {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .prediction-card h2 {
+    font-size: 2rem;
+  }
+}
+
+/* ============= SCROLLBAR ============= */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-gradient);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* ============= SELECTION ============= */
+::selection {
+  background: rgba(139, 92, 246, 0.4);
+  color: white;
+}
+
+/* ============= SMOOTH TRANSITIONS ============= */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* paste the user's provided big stylesheet here (the one you provided) */
+/* I will include it verbatim with a couple of small tweaks for Plotly containers */
+
+/* ============= (YOUR PROVIDED CSS) ============= */
+/* (Start of your stylesheet) */
+:root { 
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --dark-bg: #0f0f23;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --text-primary: #ffffff;
+  --text-secondary: #b4b4c8;
+  --accent-purple: #8b5cf6;
+  --accent-pink: #ec4899;
+  --accent-cyan: #06b6d4;
+  --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.3);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+* { margin:0; padding:0; box-sizing:border-box; transition: background-color .3s, color .3s, border-color .3s; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: var(--dark-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+body::before{
+  content:''; position:fixed; top:0; left:0; width:100%; height:100%;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(139,92,246,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(236,72,153,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 90%, rgba(6,182,212,0.1) 0%, transparent 50%);
+  pointer-events:none; z-index:0; animation: backgroundPulse 15s ease-in-out infinite;
+}
+@keyframes backgroundPulse { 0%,100%{opacity:1;}50%{opacity:0.6;}}
+
+/* particles */
+.particles { position:fixed; z-index:1; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:hidden; }
+.particle { position:absolute; width:4px; height:4px; background: rgba(139,92,246,0.6); border-radius:50%; animation: float 20s infinite ease-in-out; }
+@keyframes float { 0%,100%{transform:translateY(0) translateX(0) scale(1); opacity:0;} 10%{opacity:1;} 90%{opacity:1;} 100%{transform:translateY(-100vh) translateX(100px) scale(0); opacity:0;} }
+
+.container-fluid { position:relative; z-index:2; max-width:1400px; margin:0 auto; padding:2rem; }
+
+header { background: rgba(255,255,255,0.08); backdrop-filter: blur(20px); border-radius:24px; padding:3rem 2rem !important; margin-bottom:3rem; border:1px solid rgba(255,255,255,0.08); box-shadow:var(--shadow-card); position:relative; overflow:hidden; animation: slideDown 0.8s ease-out; }
+@keyframes slideDown {from{opacity:0;transform:translateY(-50px)}to{opacity:1;transform:translateY(0)}}
+header::before{content:'';position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent); animation: shimmer 3s infinite;}
+@keyframes shimmer{0%{left:-100%}100%{left:100%}}
+header h1{font-size:2.2rem; font-weight:800; background:linear-gradient(135deg,#667eea,#764ba2,#f093fb); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin:0; letter-spacing:-0.5px; animation: gradientShift 5s ease infinite; background-size:200% 200%;}
+@keyframes gradientShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.card{ background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border-radius: 16px; padding:1.5rem; box-shadow:var(--shadow-card); transition:all .4s; position:relative; overflow:hidden;}
+.card:hover{ transform: translateY(-6px); box-shadow: 0 16px 48px rgba(139,92,246,0.25); border-color: rgba(139,92,246,0.25); }
+.form-control, .form-select { background: rgba(255,255,255,0.02); border: 2px solid rgba(255,255,255,0.04); border-radius: 12px; color: var(--text-primary); padding: .875rem 1rem; }
+.form-control:focus, .form-select:focus { border-color: var(--accent-purple); box-shadow: 0 0 0 4px rgba(139,92,246,0.12); outline:none; background: rgba(255,255,255,0.03); color:var(--text-primary); }
+.form-check { padding:1rem; background:rgba(255,255,255,0.02); border-radius:12px; margin-bottom:1rem; border:2px solid transparent; cursor:pointer; }
+.form-check-input{ width:1.5rem; height:1.5rem; margin-top:.1rem; cursor:pointer; }
+.form-check-input:checked{ background-color:var(--accent-purple); border-color:var(--accent-purple); box-shadow:0 0 12px rgba(139,92,246,0.35); }
+
+/* drug card */
+.drug-card{ background: rgba(255,255,255,0.03); border-radius:12px; padding:1rem; margin-bottom:1rem; border:1px solid rgba(255,255,255,0.04); display:flex; align-items:flex-start; gap:12px; }
+.drug-rank{ width:44px; height:44px; border-radius:50%; background: linear-gradient(135deg,#667eea,#764ba2); color:white; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:1.1rem; box-shadow:0 6px 20px rgba(139,92,246,0.2); }
+
+/* prediction card */
+.prediction-card{ background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(236,72,153,0.08)); padding:1.5rem; border-radius:16px; border:1px solid rgba(139,92,246,0.12); box-shadow:0 12px 40px rgba(0,0,0,0.4); }
+.prediction-card h2{ font-size:1.6rem; margin:0; }
+
+/* plotly container fix */
+#plotly-div{ background: rgba(255,255,255,0.03); border-radius:12px; padding:1rem; border:1px solid rgba(255,255,255,0.04); }
+
+/* footer */
+footer{ margin-top:3rem; padding:1rem; text-align:center; color:var(--text-secondary); }
+
+/* small screens */
+@media (max-width:768px){ header h1{font-size:1.6rem} .container-fluid{padding:1rem} .card{padding:1rem} }
+
+/* end of provided CSS */
