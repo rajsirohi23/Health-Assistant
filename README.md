@@ -1,9 +1,9 @@
-Health-Assistant🧑🏼‍⚕️
+# Health-Assistant🧑🏼‍⚕️
 A smart health assistant web application
 
 
 # Project Overview
-Health-Assistant is a web-based application built to assist users in monitoring health parameters, predicting health risk factors, and providing recommendations. Using a backend machine-learning model and an interactive UI, the application aims to make health monitoring accessible and intuitive.
+Health-Assistant is a web-based application built to assist users in monitoring health parameters, predicting health risk factors, and providing recommendations. Using a backend machine-learning model and an interactive, the application aims to make health monitoring accessible and intuitive.
 
 
 # Features
