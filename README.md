@@ -1,4 +1,4 @@
-# Health-Assistant🧑🏼‍⚕️
+<img width="729" height="288" alt="Screenshot 2025-11-21 at 8 08 24 AM" src="https://github.com/user-attachments/assets/a681b6d5-903c-4e17-b153-20fddec3de20" /># Health-Assistant🧑🏼‍⚕️
 
 Health-Assistant
 A smart health assistant web application
@@ -27,14 +27,3 @@ Deployment: Render
 
 #Architecture & File Structure
 
-Health-Assistant/
-│  
-├── app.py            # Main Flask app  
-├── config.py         # Configuration settings  
-├── model/            # Trained ML model files  
-├── data/             # Sample data or training csvs  
-├── templates/        # Flask HTML templates  
-├── static/           # CSS, JS, images  
-├── requirements.txt  # Python dependencies  
-├── Procfile          # Deployment configuration  
-└── README.md         # Project documentation  
